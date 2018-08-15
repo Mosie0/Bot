@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const prefix = 'j!'
 const ownerID = '244271175608303616';
 
-client.on('message',nessage =>{
+client.on('message', message =>{
     let args = message.content.slice(prefix.length).trim().split(' ');
     let cmd = args.shift().toLowerCase();
     if (message.author.bot)return;
