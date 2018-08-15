@@ -14,7 +14,7 @@ client.on('message', message => {
         delete require.cache[require.resolve(`./commands/${cmd}.js`)];
 
         let ops = {
-            ownerID: 479341622526738432
+            ownerID: ownerID
         }
 
         let commandFile = require(`./commands/${cmd}.js`);
