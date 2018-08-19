@@ -4,6 +4,13 @@ const client = new Discord.Client();
 const prefix = 'j!'
 const ownerID = '244271175608303616';
 
+const serverStats = {
+    guildID: '467174436299079700',
+    totalUsersID: '480520290800107544',
+    memberCountID: '480520290800107544',
+    botCountID: '480520548166664192'
+};
+
 client.on('message', message => {
     let args = message.content.slice(prefix.length).trim().split(' ');
     let cmd = args.shift().toLowerCase();
@@ -27,5 +34,25 @@ client.on('message', message => {
  });
 
 client.on('ready', () => console.log('Launched!'));
+
+client.on('guildMemberAdd', member => {
+
+    if (member.guild.id !== serverStats.guildID) return;
+
+    client.channels.get(serverStats.totalUsersID).setname(`Total Users : ${member.guild.memberCount}`);
+    client.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(m => !m.bot).size}`);
+    client.channels.get(serverStats.botCountID).setname(`Bot Count : ${member.guild.members.filtering(m => m.user.bot).size}`);
+
+});
+
+client.on('guildMemberRemove', member =>{
+
+    if (member.guild.id !== serverStats.guildID) return;
+
+    client.channels.get(serverStats.totalUsersID).setname(`Total Users : ${member.guild.memberCount}`);
+    client.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(m => !m.bot).size}`);
+    client.channels.get(serverStats.botCountID).setname(`Bot Count : ${member.guild.members.filtering(m => m.user.bot).size}`);
+
+});
 
 client.login(process.env.BOT_TOKEN);
