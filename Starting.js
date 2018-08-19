@@ -6,7 +6,7 @@ const ownerID = '244271175608303616';
 
 const serverStats = {
     guildID: '467174436299079700',
-    totalUsersID: '480520290800107544',
+    totalUsersID: '480520485914804247',
     memberCountID: '480520290800107544',
     botCountID: '480520548166664192'
 };
