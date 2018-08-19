@@ -39,9 +39,9 @@ client.on('guildMemberAdd', member => {
 
     if (member.guild.id !== serverStats.guildID) return;
 
-    client.channels.get(serverStats.totalUsersID).setname(`Total Users : ${member.guild.memberCount}`);
-    client.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(m => !m.bot).size}`);
-    client.channels.get(serverStats.botCountID).setname(`Bot Count : ${member.guild.members.filtering(m => m.user.bot).size}`);
+    client.channels.get(serverStats.totalUsersID).setName(`Total Users : ${member.guild.memberCount}`);
+    client.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(member => !member.user.bot).size}`);
+    client.channels.get(serverStats.botCountID).setName(`Bot Count : ${member.guild.members.filter(m => m.user.bot).size}`);
 
 });
 
@@ -49,9 +49,9 @@ client.on('guildMemberRemove', member =>{
 
     if (member.guild.id !== serverStats.guildID) return;
 
-    client.channels.get(serverStats.totalUsersID).setname(`Total Users : ${member.guild.memberCount}`);
-    client.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(m => !m.bot).size}`);
-    client.channels.get(serverStats.botCountID).setname(`Bot Count : ${member.guild.members.filtering(m => m.user.bot).size}`);
+    client.channels.get(serverStats.totalUsersID).setName(`Total Users : ${member.guild.memberCount}`);
+    client.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(member => !member.user.bot).size}`);
+    client.channels.get(serverStats.botCountID).setName(`Bot Count : ${member.guild.members.filter(m => m.user.bot).size}`);
 
 });
 
