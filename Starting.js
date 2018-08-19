@@ -15,7 +15,7 @@ const db = require('quick.db');
 
 client.on('message', async message => {
 
-    if (message.autgor.bot) return;
+    if (message.author.bot) return;
     if (message.channel.type !== 'text'){
 
         let active = await db.fetch(`support_${message.author.id}`);
@@ -125,7 +125,6 @@ client.on('message', async message => {
 
     let args = message.content.slice(prefix.length).trim().split(' ');
     let cmd = args.shift().toLowerCase();
-    if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
     try {
 
