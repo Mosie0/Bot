@@ -1,4 +1,4 @@
-const ascii = require('ascoo-art');
+const ascii = require('ascii-art');
 
 exports.run = (client, message, args, ops) => {
 
