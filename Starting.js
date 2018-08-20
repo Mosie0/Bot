@@ -10,9 +10,10 @@ const serverStats = {
     memberCountID: '480520290800107544',
     botCountID: '480520548166664192'
 };
+client.on('message', async message => {
 
-
-
+    if (message.author.bot) return;
+    if(message.channel.type !== 'dm') return;
     let args = message.content.slice(prefix.length).trim().split(' ');
     let cmd = args.shift().toLowerCase();
     if (!message.content.startsWith(prefix)) return;
@@ -30,6 +31,8 @@ const serverStats = {
     } catch (e) {
         console.log(e.stack);
     }
+
+ });
 
 client.on('ready', () => console.log('Launched!'));
 
