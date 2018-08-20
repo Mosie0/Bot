@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, tools) => {
 
-    if (!message.member.roles.find(r => r.name === 'roleName')) return message.channel.send('This requires role: roleName');
+    if (!message.member.roles.find(r => r.name === 'Owner')) return message.channel.send('This requires role: roleName');
 
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('This requires the permission: ADMINISTRATOR');
 
@@ -21,5 +21,5 @@ exports.run = async (client, message, args, tools) => {
     await msg.react (':x:');
 
     message.delete({timeout: 1000});
-    
+
 }
