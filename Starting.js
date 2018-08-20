@@ -13,7 +13,6 @@ const serverStats = {
 client.on('message', async message => {
 
     if (message.author.bot) return;
-    if(message.channel.type !== 'dm') return;
     let args = message.content.slice(prefix.length).trim().split(' ');
     let cmd = args.shift().toLowerCase();
     if (!message.content.startsWith(prefix)) return;
