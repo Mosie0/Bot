@@ -6,7 +6,7 @@ exports.run = async (client, message, args, tools) => {
 
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('This requires the permission: ADMINISTRATOR');
 
-    if (!args[0]) return message.channel.send('Proper Usage: <prefix>poll question');
+    if (!args[0]) return message.channel.send('Proper Usage: <j!> poll question');
 
     const embed = new Discord.MessageEmbed()
         .setColor(0xffffff)
