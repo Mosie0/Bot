@@ -1,25 +1,19 @@
 const Discord = require('discord.js');
-
-exports.run = async (client, message, args, tools) => {
-
-   // if (!message.member.roles.find(r => r.name === 'Owner')) return message.channel.send('This requires role: roleName');
-
-    if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('This requires the permission: ADMINISTRATOR');
-
-    if (!args[0]) return message.channel.send('Proper Usage: <prefix> poll question');
-
-    const embed = new Discord.MessageEmbed()
-        .setColor(0xffffff)
-        .setFooter('React to vote.')
-        .setDescription(args.join(''))
-        .setTitle(`Poll Created By ${message.author.username}`);
-
-    let msg = await message.channel.send(embed);
-
-
-    await msg.react(':white_check_mark:');
-    await msg.react (':x:');
-
-    message.delete({timeout: 1000});
-
+module.exports.run = async (bot, message, args) => {
+    if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(`Sorry But you need the Manage Messages Permission.`)
+    let suggestionchannel = message.mentions.channels.first()
+    if (!args.slice(1).join(' ')) return message.channel.send(`Please Provide Something for the Poll!`)
+    message.delete().catch()
+    const embed = new Discord.RichEmbed()
+        .setColor(`#000FF`)
+        .setDescription(args.slice(1).join(' '))
+        .setTitle(`Poll Created By ${message.author.username}`)
+        .setFooter(`React to Vote!`)
+    suggestionchannel.send(embed).then(message => {
+        message.react(`👍`)
+        message.react(`👎`)
+    })
+}
+module.exports.help = {
+    name: "poll"
 }
