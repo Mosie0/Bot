@@ -43,8 +43,8 @@ module.exports.run = async (bot, message, args) => {
         .addField("Total Roles", message.guild.roles.size, true)
         .addField("Total Bots", botCount, true)
         .addField("Total Humans", humanCount, true)
-        .addField("Server Roles", `Type **s!roles** to see \nthe Server roles`, true)
-        .addField("Server Emojis", `Type **s!emojis** to see \nthe Servers Emojis`, true)
+        .addField("Server Roles", `Type **j!roles** to see \nthe Server roles`, true)
+        .addField("Server Emojis", `Type **j!emojis** to see \nthe Servers Emojis`, true)
         .setFooter(`ID: ${message.guild.id}`, sIcon);
     message.channel.startTyping();
     message.channel.send(serverEmbed);
