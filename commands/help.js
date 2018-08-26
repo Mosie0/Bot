@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
     let botembed = new Discord.RichEmbed()
         .setColor("#7EC0EE")
-        .addField(`Commands List`, `[Commands](https://hastebin.com/igokuneted.makefile) [Moderation] (https://hastebin.com/ohebikerac.bash) `) 
+        .addField(`Commands List`, `[Commands](https://hastebin.com/igokuneted.makefile) \n [Moderation] (https://hastebin.com/ohebikerac.bash) `) 
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL)
