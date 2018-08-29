@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const prefix = 'J!'
+const prefix = 'j!'
 const ownerID = '244271175608303616';
 
 const serverStats = {
@@ -34,7 +34,7 @@ client.on('message', async message => {
  });
 
  client.on("ready", async () => {
-    client.user.setActivity(`j!help | I watch over ${client.guilds.size} Servers, and ${client.users.size} Users`, { type: "WATCHING" });
+    client.user.setActivity(`s!help | I watch over ${client.guilds.size} Servers, and ${client.users.size} Users`, { type: "WATCHING" });
  console.log("Launched!")
  });
 

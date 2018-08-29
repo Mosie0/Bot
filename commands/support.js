@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 module.exports.run = async (bot, message, args) => {
-let logchannel = bot.channels.get('480803451786493982')
+let logchannel = bot.channels.get('481310719367839745')
     var options = {
         maxAge: 0
     };
