@@ -33,7 +33,10 @@ client.on('message', async message => {
 
  });
 
-client.on('ready', () => console.log('Launched!'));
+ client.on("ready", async () => {
+    client.user.setActivity(`s!help | I watch over ${client.guilds.size} Servers, and ${client.users.size} Users`, { type: "WATCHING" });
+ console.log("Launched!")
+ });
 
 client.on('guildMemberAdd', member => {
 
@@ -54,5 +57,12 @@ client.on('guildMemberRemove', member =>{
     client.channels.get(serverStats.botCountID).setName(`Bot Count : ${member.guild.members.filter(m => m.user.bot).size}`);
 
 });
+
+    client.user.setPresence({
+    game: {
+        name: `j!help | I watch over ${client.guilds.size} Servers, and ${client.users.size} Users!`,
+        type: "WATCHING"
+    }
+})
 
 client.login(process.env.BOT_TOKEN);
